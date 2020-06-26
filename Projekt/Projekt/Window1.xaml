@@ -12,7 +12,10 @@
         <local:ViewModel x:Key="ViewModel"/>
         <local:DateTimeToDateConverter x:Key="MyConverter"/>
     </Window.Resources>
-    <Grid DataContext="{Binding Source={StaticResource ViewModel}}">
+    <Window.DataContext>
+        <local:Window2ViewModel/>
+    </Window.DataContext>
+    <Grid>
         <DockPanel>
             <Grid>
                 <Grid.RowDefinitions>
@@ -20,25 +23,27 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="0.05*" />
                 </Grid.RowDefinitions>
-                <Border Grid.Row="1" Width=" 400" Height="300" BorderThickness="1" BorderBrush="Black" CornerRadius="20" Opacity="1">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"  Width=" 400" Height="300" >
-                        <TextBlock Text="Rejestracja" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="0,50,0,0" FontWeight="Bold" FontSize="28" Foreground="Black" />
-                        <Grid Height="160">
+                <Border Grid.Row="1" Width=" 500" Height="400" BorderThickness="1" BorderBrush="Black" CornerRadius="20" Opacity="1">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"  Width=" 500" Height="400" >
+                        <TextBlock Text="Rejestracja" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="0,0,0,0" FontWeight="Bold" FontSize="28" Foreground="Black" />
+                        <Grid Height="350">
                             <Label Name="LoginLB" Content="Podaj swój login:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-                            <TextBox x:Name="LoginTB" HorizontalAlignment="Left" Margin="150,13,0,0" VerticalAlignment="Top" Width="100" Height="25" Text="{Binding User.Login , Mode=TwoWay}"/>
+                            <TextBox x:Name="LoginTB" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="100" Height="25" Text="{Binding Model.Login}"/>
                             <Label Name="PasswordLB" Content="Podaj swoje hasło:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="130" Height="25"/>
-                            <TextBox x:Name="PasswordTB" HorizontalAlignment="Left" Margin="150,43,0,0" VerticalAlignment="Top" Width="100" Height="25" Text="{Binding User.Password , Mode=TwoWay}"/>
+                            <TextBox x:Name="PasswordTB" HorizontalAlignment="Left" Margin="150,40,0,0" VerticalAlignment="Top" Width="100" Height="25" Text="{Binding Model.Password}"/>
                             <Label Name="NameLB" Content="Podaj swoje imię:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="100" Height="25"/>
-                            <TextBox x:Name="NameTB" HorizontalAlignment="Left" Margin="150,73,0,0" VerticalAlignment="Top" Width="100" Height="25" Text="{Binding User.Name , Mode=TwoWay}"/>
+                            <TextBox x:Name="NameTB" HorizontalAlignment="Left" Margin="150,70,0,0" VerticalAlignment="Top" Width="100" Height="25"/>
                             <Label Name="LastNameLB" Content="Podaj swoje nazwisko:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="130" Height="25"/>
-                            <TextBox x:Name="LastNameTB" HorizontalAlignment="Left" Margin="150,103,0,0" VerticalAlignment="Top" Width="100" Height="25" Text="{Binding User.LastName , Mode=TwoWay}"/>
+                            <TextBox x:Name="LastNameTB" HorizontalAlignment="Left" Margin="150,100,0,0" VerticalAlignment="Top" Width="100" Height="25"/>
                             <Label Name="AgeLB" Content="Podaj swój wiek:" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="100" Height="25"/>
-                            <TextBox x:Name="AgeTB" HorizontalAlignment="Left" Margin="150,133,0,0" VerticalAlignment="Top" Width="100" Height="25" Text="{Binding User.Age , Mode=TwoWay}"/>
+                            <TextBox x:Name="AgeTB" HorizontalAlignment="Left" Margin="150,130,0,0" VerticalAlignment="Top" Width="100" Height="25"/>
+                            <TextBox HorizontalAlignment="Center" Height="40" Margin="0,180,0,0" TextWrapping="Wrap" Text="{Binding Model.Errors}" VerticalAlignment="Top" Width="450"/>
                         </Grid>
-                        <Grid>
-                            <Label Name="DataLB" Content="{Binding Source={x:Static sys:DateTime.Now}, Converter={StaticResource MyConverter}}" Width="80" Height="30" Margin="0,0,300,0"/>
-                            <Button x:Name="SubmitBTN" Content="Zarejestruj" Width="100" Height="25" Margin="280,10,20,5" FontSize="10" FontWeight="Bold" Click="SubmitBTN_Click" Command="{Binding SubmitCommand}" />
-                            <Button x:Name="BackBTN" Content="Wróć" Width="80" Height="25" Margin="80,5,10,0" FontSize="10" FontWeight="Bold" Click="BackBTN_Click"/>
+                        <Grid Margin="0,-90,0,0">
+                            <Label Name="DataLB" Content="{Binding Source={x:Static sys:DateTime.Now}, Converter={StaticResource MyConverter}}" Width="80" Height="30" Margin="0,50,390,0"/>
+                            <CheckBox Content="Nie jestem robotem"  Margin="100,45,270,0"  IsChecked="{Binding Model.IsHuman}"/>
+                            <Button x:Name="SubmitBTN" Content="Zarejestruj" Width="100" Height="25" Margin="380,55,20,5" FontSize="10" FontWeight="Bold" Click="SubmitBTN_Click" Command="{Binding LoginCommand}" CommandParameter="{Binding Model}"/>
+                            <Button x:Name="BackBTN" Content="Wróć" Width="80" Height="25" Margin="180,50,10,0" FontSize="10" FontWeight="Bold" Click="BackBTN_Click"/>
                         </Grid>
                     </StackPanel>
                 </Border>

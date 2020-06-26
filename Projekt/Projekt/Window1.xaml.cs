@@ -38,24 +38,26 @@ namespace Projekt
 
                 if (string.IsNullOrEmpty(name))
                 {
-                    MessageBox.Show("Pole ;Podaj swoje imię; nie może być puste. Proszę wpisz swoje imię.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                if (string.IsNullOrEmpty(lastname))
-                {
-                    MessageBox.Show("Pole ;Podaj swoje nazwisko; nie może być puste. Proszę wpisz swoje nazwisko.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                if (string.IsNullOrEmpty(age))
-                {
-                    MessageBox.Show("Pole ;Podaj swój wiek; nie może być puste. Proszę wpisz swój wiek.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Pole 'Podaj swoje imię' nie może być puste. Proszę wpisz swoje imię.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                SaveToDB.SaveInfo(login, password, name, lastname, age, joiningdate.ToString());
-
-                MessageBox.Show($"Pomyślnie zarejestrowano użytkownika {login}! Zapisano go w bazie danych!", "Powodzenie", MessageBoxButton.OK, MessageBoxImage.Information);
-                this.Close();
+                else if (string.IsNullOrEmpty(lastname))
+                {
+                    MessageBox.Show("Pole 'Podaj swoje nazwisko' nie może być puste. Proszę wpisz swoje nazwisko.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                else if (string.IsNullOrEmpty(age))
+                {
+                    MessageBox.Show("Pole 'Podaj swój wiek' nie może być puste. Proszę wpisz swój wiek.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                else
+                {
+                    SaveToDB.SaveInfo(login, password, name, lastname, age, joiningdate.ToString());
+                    MessageBox.Show($"Pomyślnie zarejestrowano użytkownika {login}! Zapisano go w bazie danych!", "Powodzenie", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {

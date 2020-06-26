@@ -29,8 +29,7 @@ namespace Projekt.Models
 
         public void Execute(object parameter)
         {
-            var model = parameter as LoginViewModel;
-            MessageBox.Show($"Pomyślnie zalogowano użytkownika {model.Login}", "Powodzenie", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
     }
 }
