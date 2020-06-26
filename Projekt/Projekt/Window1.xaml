@@ -37,8 +37,8 @@
                         </Grid>
                         <Grid>
                             <Label Name="DataLB" Content="{Binding Source={x:Static sys:DateTime.Now}, Converter={StaticResource MyConverter}}" Width="80" Height="30" Margin="0,0,300,0"/>
-                            <Button x:Name="SubmitBTN" Content="Zarejestruj" Width="80" Height="25" Margin="300,5,20,5" FontSize="10" FontWeight="Bold" Click="SubmitBTN_Click" Command="{Binding SubmitCommand}" />
-                            <Button x:Name="BackBTN" Content="Wróć" Width="80" Height="25" Margin="120,0,10,0" FontSize="10" FontWeight="Bold" Click="BackBTN_Click"/>
+                            <Button x:Name="SubmitBTN" Content="Zarejestruj" Width="100" Height="25" Margin="280,10,20,5" FontSize="10" FontWeight="Bold" Click="SubmitBTN_Click" Command="{Binding SubmitCommand}" />
+                            <Button x:Name="BackBTN" Content="Wróć" Width="80" Height="25" Margin="80,5,10,0" FontSize="10" FontWeight="Bold" Click="BackBTN_Click"/>
                         </Grid>
                     </StackPanel>
                 </Border>
