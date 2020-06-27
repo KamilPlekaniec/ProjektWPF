@@ -39,5 +39,36 @@ namespace Projekt.Models
                 throw ex;
             }
         }
+        public static void SelectUsers(string imie, string nazwisko, string wiek, string datadolaczenia)
+        {
+            string connection = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProjektWPF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection sqlConn = new SqlConnection(connection);
+
+            try
+            {
+                if (sqlConn.State == ConnectionState.Closed)
+                {
+                    sqlConn.Open();
+
+                    string query = "SELECT Imię, Nazwisko, Lata, DataDołączenia FROM Użytkownik";
+                    SqlCommand command = new SqlCommand(query, sqlConn);
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@Imię", imie);
+                    command.Parameters.AddWithValue("@Nazwisko", nazwisko);
+                    command.Parameters.AddWithValue("@Lata", wiek);
+                    command.Parameters.AddWithValue("@DataDołączenia", datadolaczenia);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                System.Windows.MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
     }
 }

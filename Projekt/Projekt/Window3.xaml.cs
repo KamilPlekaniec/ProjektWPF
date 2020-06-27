@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Projekt.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -35,7 +38,14 @@ namespace Projekt
 
         private void ChangeImageBTN_Click(object sender, RoutedEventArgs e)
         {
-            add_Image(@"C:\Users\karol\Desktop\Kamil\Programowanie IV\ProjektProgramowanieWPF\Projekt\userimage.png");
+            OpenFileDialog open = new OpenFileDialog();
+            open.InitialDirectory = @"Programowanie IV\ProjektProgramowanieWPF\Projekt";
+            open.Filter = "Image files(*.png; *.jpg; *.jpeg;)|*.png; *.jpg; *.jpeg;";
+            if (open.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string path = System.IO.Path.GetDirectoryName(open.FileName);
+                get_Images(path);
+            }
         }
         private void get_Images(string folder_Path)
         {
@@ -73,6 +83,26 @@ namespace Projekt
             newImage.Stretch = Stretch.Uniform;
             newImage.VerticalAlignment = VerticalAlignment.Center;
             MyImage.Children.Add(newImage);
+        }
+
+        private void StatBTN_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void WpisBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void StatOtherBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OtherUserBTN_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

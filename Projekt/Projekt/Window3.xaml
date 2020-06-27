@@ -18,14 +18,33 @@
                 <Border Grid.Row="1" Width=" 780" Height="500" BorderThickness="2" BorderBrush="Black" CornerRadius="20" Opacity="1" Margin="0,-60,0,0">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"  Width=" 750" Height="500" >
                         <Grid Height="50" Margin="0,10,0,0">
-                            <TextBlock Text="Panel użytkownika" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="0,0,0,0" FontWeight="Bold" FontSize="28" Foreground="Black" />
+                            <TextBlock Text="Panel użytkownika" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="20,0,0,0" FontWeight="Bold" FontSize="28" Foreground="Black" />
                             <Button x:Name="LogoutBTN" Content="Wyloguj" Width="100" Margin="600,0,0,5" Click="LogoutBTN_Click"/>
-                            <Line x:Name="Line1" StrokeThickness="4" Stroke="Black" X1="800" Margin="0,45,0,0"/>
                         </Grid>
                         <Grid Height="400" Margin="0,10,0,0" Width="720">
+                            <Line StrokeThickness="4" Stroke="Black" X1="800" Margin="0,0,0,0"/>
                             <Border Width="200" Height="200" BorderThickness="2" BorderBrush="Black" Margin="460,0,0,100"/>
                             <WrapPanel x:Name="MyImage" Height="198" Width="198" Margin="460,0,0,100" VerticalAlignment="Center"/>
-                            <Button x:Name="ChangeImageBTN" Width="130" Content="Zmień avatar" Margin="530,150,0,0" Click="ChangeImageBTN_Click"/>
+                            <Label Content="Jesteś zalogowany jako:" FontSize="15" FontWeight="Bold"/>
+                            <Label Content="Moje Dane:" FontSize="15" Margin="0,25,0,0"/>
+                            <Label Content="Imię:" FontSize="15" Margin="0,50,0,0"/>
+                            <Label Content="Nazwisko:" FontSize="15" Margin="0,75,0,0"/>
+                            <Label Content="Wiek:" FontSize="15" Margin="0,100,0,0"/>
+                            <Label Content="Data dołączenia:" FontSize="15" Margin="0,125,0,0"/>
+                            <Line Stroke="Black" StrokeThickness="2" X1="485" Margin="0,160,0,0"/>
+                            <Label Content="Moje statystyki" FontSize="15" Margin="0,170,0,0"/>
+                            <Button x:Name="StatBTN" Content="Pokaż" Width="100" Margin="0,0,380,30" Click="StatBTN_Click"/>
+                            <Label Content="Moje wpisy" FontSize="15" Margin="0,210,0,0"/>
+                            <Button x:Name="WpisBTN" Content="Pokaż" Width="100" Margin="0,50,380,0" Click="WpisBTN_Click"/>
+                            <Line Stroke="Black" StrokeThickness="2" X1="485" Margin="0,250,0,0"/>
+                            <Grid>
+                                <Label Content="Statystyki innych użytkowników" FontSize="15" Margin="0,260,0,0"/>
+                                <Button x:Name="StatOtherBTN" Content="Pokaż" Width="100" Margin="0,150,150,0" Click="StatOtherBTN_Click"/>
+                                <Label Content="Inni użytkownicy" FontSize="15" Margin="0,300,0,0"/>
+                                <Button x:Name="OtherUserBTN" Content="Pokaż" Width="100" Margin="0,230,350,0" Click="OtherUserBTN_Click"/>
+                                <Button x:Name="ChangeImageBTN" Width="130" Content="Zmień avatar" Margin="520,145,0,0" Click="ChangeImageBTN_Click"/>
+                                <Line StrokeThickness="4" Stroke="Black" X1="800" Margin="0,395,0,0"/>
+                            </Grid>
                         </Grid>
                     </StackPanel>
                 </Border>
