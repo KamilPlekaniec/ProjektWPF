@@ -24,6 +24,7 @@ namespace Projekt
         {
             InitializeComponent();
         }
+        
         private void SubmitBTN_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -56,6 +57,8 @@ namespace Projekt
                 {
                     SaveToDB.SaveInfo(login, password, name, lastname, age, joiningdate.ToString());
                     MessageBox.Show($"Pomyślnie zarejestrowano użytkownika {login}! Zapisano go w bazie danych!", "Powodzenie", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MainWindow mwnd = new MainWindow();
+                    mwnd.Show();
                     this.Close();
                 }
             }
@@ -69,6 +72,8 @@ namespace Projekt
 
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mwnd = new MainWindow();
+            mwnd.Show();
             this.Close();
         }
     }

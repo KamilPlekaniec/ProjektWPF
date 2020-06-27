@@ -8,9 +8,9 @@ using System.Windows.Input;
 
 namespace Projekt.Models
 {
-    public class LoginCommand : ICommand
+    public class RegisterCommand : ICommand
     {
-        private LoginViewModelValidator validator = new LoginViewModelValidator();
+        private RegisterViewModelValidator validator = new RegisterViewModelValidator();
 
         public event EventHandler CanExecuteChanged
         {
@@ -20,7 +20,7 @@ namespace Projekt.Models
 
         public bool CanExecute(object parameter)
         {
-            var model = parameter as LoginViewModel;
+            var model = parameter as RegisterViewModel;
             if (model is null) return false;
             var resoults = validator.Validate(model);
             model.Errors = string.Join(" ", resoults.Errors);

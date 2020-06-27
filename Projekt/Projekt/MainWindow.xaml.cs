@@ -30,12 +30,14 @@ namespace Projekt
         {
             Window2 wnd2 = new Window2();
             wnd2.Show();
+            this.Close();
         }
 
         private void RejestracjaBTN_Click(object sender, RoutedEventArgs e)
         {
             Window1 wnd1 = new Window1();
             wnd1.Show();
+            this.Close();
         }
     }
 }

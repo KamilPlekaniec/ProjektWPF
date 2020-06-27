@@ -12,7 +12,7 @@
         <local:DateTimeToDateConverter x:Key="MyConverter"/>
     </Window.Resources>
     <Window.DataContext>
-        <local:Window2ViewModel/>
+        <local:RegisterViewModel/>
     </Window.DataContext>
     <Grid>
         <DockPanel>
@@ -27,13 +27,12 @@
                         <TextBlock Text="Logowanie" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="0,50,0,0" FontWeight="Bold" FontSize="28" Foreground="Black" />
                         <Grid Height="160">
                             <Label Name="LoginLB" Content="Podaj swój login:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-                            <TextBox x:Name="LoginTB" HorizontalAlignment="Left" Margin="150,13,0,0" VerticalAlignment="Top" Width="100" Height="25" Text="{Binding Model.Login}"/>
+                            <TextBox x:Name="LoginTB" HorizontalAlignment="Left" Margin="150,13,0,0" VerticalAlignment="Top" Width="100" Height="25"/>
                             <Label Name="PasswordLB" Content="Podaj swoje hasło:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="130" Height="25"/>
-                            <TextBox x:Name="PasswordTB" HorizontalAlignment="Left" Margin="150,43,0,0" VerticalAlignment="Top" Width="100" Height="25" Text="{Binding Model.Password}"/>
-                            <CheckBox Content="Nie jestem robotem" HorizontalAlignment="Left" Margin="150,73,0,0" VerticalAlignment="Top" IsChecked="{Binding Model.IsHuman}"/>
+                            <TextBox x:Name="PasswordTB" HorizontalAlignment="Left" Margin="150,43,0,0" VerticalAlignment="Top" Width="100" Height="25"/>
                         </Grid>
                         <Grid>
-                            <Button x:Name="ZalogujBTN" Content="Zaloguj" Width="80" Height="25" Margin="300,5,20,5" FontSize="10" FontWeight="Bold" Click="ZalogujBTN_Click" Command="{Binding LoginCommand}" CommandParameter="{Binding Model}"/>
+                            <Button x:Name="ZalogujBTN" Content="Zaloguj" Width="80" Height="25" Margin="300,5,20,5" FontSize="10" FontWeight="Bold" Click="ZalogujBTN_Click"/>
                             <Button x:Name="BackBTN" Content="Wróć" Width="80" Height="25" Margin="120,0,10,0" FontSize="10" FontWeight="Bold" Click="BackBTN_Click"/>
                         </Grid>
                     </StackPanel>

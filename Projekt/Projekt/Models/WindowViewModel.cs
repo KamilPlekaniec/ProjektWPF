@@ -7,14 +7,14 @@ using System.Windows.Input;
 
 namespace Projekt.Models
 {
-    public class Window2ViewModel
+    public class WindowViewModel
     {
-        public LoginViewModel Model { get; set; }
+        public RegisterViewModel Model { get; set; }
         public ICommand LoginCommand { get; set; }
-        public Window2ViewModel()
+        public WindowViewModel()
         {
-            Model = new LoginViewModel();
-            LoginCommand = new LoginCommand();
+            Model = new RegisterViewModel();
+            LoginCommand = new RegisterCommand();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projekt.Models
 {
-    public class LoginViewModel : ViewModelBase
+    public class RegisterViewModel : ViewModelBase
     {
         private string _login;
 

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Projekt.Models
 {
-    public class LoginViewModelValidator : AbstractValidator<LoginViewModel>
+    public class RegisterViewModelValidator : AbstractValidator<RegisterViewModel>
     {
-        public LoginViewModelValidator()
+        public RegisterViewModelValidator()
         {
             CascadeMode = CascadeMode.StopOnFirstFailure;
 
@@ -34,11 +34,11 @@ namespace Projekt.Models
                 .Must(x => x != x.ToUpper())
                 .WithMessage("Hasło musi zawierać przynajmniej jedną małą literę!")
                 .Matches(@".*\d.*")
-                .WithMessage("Hasło musi zawierać conajmniej jedną cyfrę!");
+                .WithMessage("Hasło musi zawierać co najmniej jedną cyfrę!");
 
             RuleFor(x => x.IsHuman)
                 .Must(x => x)
-                .WithMessage("Musisz potwierdzic że jestes czlowiekiem!");
+                .WithMessage("Musisz potwierdzić że nie jesteś robotem!");
         }
     }
 }

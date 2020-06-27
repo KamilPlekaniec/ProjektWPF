@@ -169,15 +169,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\LoginCommand.cs" />
-    <Compile Include="Models\LoginViewModel.cs" />
-    <Compile Include="Models\LoginViewModelValidator.cs" />
-    <Compile Include="Models\Window2ViewModel.cs" />
+    <Compile Include="Models\RegisterCommand.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="Models\RegisterViewModelValidator.cs" />
+    <Compile Include="Models\WindowViewModel.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window2.xaml.cs">
       <DependentUpon>Window2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window3.xaml.cs">
+      <DependentUpon>Window3.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -196,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Window2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
